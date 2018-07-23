@@ -1,0 +1,2 @@
+Scopuli Core Library
+====================
