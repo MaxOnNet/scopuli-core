@@ -19,16 +19,16 @@
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
 
 
-class Role(Base, Schema):
+class Organization(Base, Schema):
     """
         Таблица ролей
     """
-    __tablename__ = 'role'
+    __tablename__ = 'organization'
     __table_args__ = {
         'mysql_engine': 'InnoDB',
         'mysql_charset': 'utf8',
         'mysql_collate': 'utf8_general_ci',
-        'mysql_comment': 'Таблица ролей'
+        'mysql_comment': 'Таблица организаций'
         }
     
     id = Column(Integer(), primary_key=True, autoincrement=True, doc="Row ID - Сурогатный ключ")
@@ -36,6 +36,6 @@ class Role(Base, Schema):
     code = Column(String(64), unique=True, index=True, nullable=False, doc="Кодовое обозначение роли")
     name = Column(String(256), nullable=False, doc="Наименование роли")
     
-    is_enable = Column(Boolean(), ColumnDefault(True), nullable=False, doc="Метка использования")
+    is_ = Column(Boolean(), ColumnDefault(True), nullable=False, doc="Метка использования")
 
 

@@ -18,8 +18,6 @@
 
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
 
-from Scopuli.Interfaces.MySQL.Schema import Base, log
-
 
 class Role(Base, Schema):
     """

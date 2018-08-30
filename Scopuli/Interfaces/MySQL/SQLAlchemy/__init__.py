@@ -30,18 +30,21 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.ext.associationproxy import association_proxy
 from sqlalchemy.ext.hybrid import hybrid_property, hybrid_method
 
-
 from sqlalchemy import create_engine
 from sqlalchemy.orm import scoped_session, sessionmaker
 
 
-class Schema:
+log = logging.getLogger(__name__)
+Base = declarative_base()
 
+
+class Schema:
+    
     @staticmethod
     def translate(value):
         """
             Функция заглушка, выдает входящее значение без изменения, необходимо для SqlAlchemy.
-    
+
             :param value: Значение
             :type value: String
             :return: ВХодящее значение без изменений

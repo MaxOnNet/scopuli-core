@@ -18,11 +18,10 @@
 
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
 
-from Scopuli.Interfaces.MySQL.Types import PasswordType
+from Scopuli.Interfaces.MySQL.SQLAlchemy.Types import PasswordType
 
-from Scopuli.Interfaces.MySQL.Schema import Base
-from Scopuli.Interfaces.MySQL.Schema.Core.User import User
-from Scopuli.Interfaces.MySQL.Schema.Core.Role import Role
+from .User import User
+from .Role import Role
 
 
 class Login(Base, Schema):

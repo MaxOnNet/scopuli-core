@@ -17,9 +17,7 @@
 """ """
 
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
-
-from Scopuli.Interfaces.MySQL.Schema import Base, log
-from Scopuli.Interfaces.MySQL.Schema.Core import Image
+from . import Image
 
 
 class User(Base, Schema):

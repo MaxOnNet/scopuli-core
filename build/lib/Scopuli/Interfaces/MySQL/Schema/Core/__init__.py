@@ -14,10 +14,9 @@
 # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 # See the License for the specific language governing permissions and
 # limitations under the License.
+""" """
 
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
-
-from Scopuli.Interfaces.MySQL.Schema import Base
 
 
 class Image(Base, Schema):

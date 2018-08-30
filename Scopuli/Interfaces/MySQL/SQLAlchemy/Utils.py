@@ -16,6 +16,49 @@
 # limitations under the License.
 """ """
 
+from Scopuli.Interfaces.MySQL.SQLAlchemy import Base, create_engine, scoped_session, sessionmaker
+
+
+def init(config):
+    mysql_engine = create_engine('mysql+pymysql://{0}:{1}@{2}'.format(
+            config.get("database", "mysql", "user"),
+            config.get("database", "mysql", "password"),
+            config.get("database", "mysql", "server")
+    ))
+    
+    mysql_engine.execute("CREATE DATABASE IF NOT EXISTS {0} "
+                         "DEFAULT CHARACTER SET = '{1}' DEFAULT COLLATE 'utf8_unicode_ci'".format(
+            config.get("database", "mysql", "database"),
+            config.get("database", "mysql", "charset", "utf8")
+    ))
+    
+    mysql_engine.dispose()
+    
+    return init_fast(config)
+
+
+def init_fast(config):
+    # Go ahead and use this engine
+    db_engine = create_engine('mysql+pymysql://{0}:{1}@{2}/{3}?charset={4}'.format(
+            config.get("database", "mysql", "user"),
+            config.get("database", "mysql", "password"),
+            config.get("database", "mysql", "server"),
+            config.get("database", "mysql", "database"),
+            config.get("database", "mysql", "charset", "utf8"),
+    
+    ), isolation_level="READ COMMITTED", strategy='threadlocal')
+    
+    Base.metadata.create_all(db_engine)
+    
+    return scoped_session(
+            sessionmaker(
+                    autoflush=False,
+                    autocommit=False,
+                    bind=db_engine.execution_options(isolation_level='READ COMMITTED')
+            )
+    )
+
+
 def transliterate(string):
     """
         Функция транслитиризации.

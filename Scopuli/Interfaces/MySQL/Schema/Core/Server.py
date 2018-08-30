@@ -18,8 +18,6 @@
 
 from Scopuli.Interfaces.MySQL.SQLAlchemy import *
 
-from Scopuli.Interfaces.MySQL.Schema import Base
-
 
 class Server(Base, Schema):
     """

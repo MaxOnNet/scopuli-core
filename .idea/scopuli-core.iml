@@ -9,6 +9,8 @@
       <sourceFolder url="file://$MODULE_DIR$/Scopuli" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/bin" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/tests" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Scopuli/Interfaces/MySQL/Schema/Web" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Scopuli/Interfaces/MySQL/SQLAlchemy" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/build" />
       <excludeFolder url="file://$MODULE_DIR$/dist" />
       <excludeFolder url="file://$MODULE_DIR$/scopuli_core.egg-info" />
